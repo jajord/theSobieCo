@@ -1,0 +1,94 @@
+html, body {
+	background-color:#444;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	margin:0;
+	padding:0;
+}
+
+#page {
+	background:#fcf2d7 url(img/bg.jpg) no-repeat fixed center;
+	width:977px;
+	margin:0 auto 0 auto;
+	border-left:1px solid #222;
+	border-right:1px solid #222;
+	box-shadow: 0px 0px 30px #111;
+}
+
+#header {
+	height:216px;
+	background:transparent url(img/header-1.png) no-repeat center top;
+	box-shadow: 0px 3px 10px #111;
+}
+#header h1 {
+	color:#eee;
+	font-size:38px;
+	padding:10px 0 0 30px;
+	margin:0;
+}
+
+#header #logo {
+	position:absolute;
+	top:70px;
+}
+#logo a {
+	display:block;
+	width:179px;
+	height:198px;
+	background:transparent url(img/logo-green.jpg) no-repeat center;
+	border:1px solid #000;
+	position:relative;
+	left:740px;
+	box-shadow: 0px 0px 20px #222;
+}
+#header #menu {
+	position:absolute;
+	top:165px;
+}
+#header #menu div{
+	position:relative;
+	left:50px;
+}
+#header #menu a {
+	color:#eee;
+	text-decoration:none;
+	font-size:20px;
+	display:inline-block;
+	padding:10px 15px 10px 15px;
+	font-weight:bold;
+}
+#header #menu a:hover {
+	opacity:0.6;
+	border-bottom:3px solid #eee;
+}
+
+
+.row {
+	display:table-row; 	
+}
+
+.cell {
+	display:table-cell;
+}
+
+.bg-white {
+	background:transparent url(img/bg-white-80.png) repeat;
+	box-shadow: 0px 0px 10px #666;
+}
+
+#programs {
+	width:120px; 
+	margin:0 0 0 50px; 
+	text-align:center;
+}
+#programs a img {
+	border:1px solid #000;
+	position:relative;
+	left:-15px;
+	top:-10px;
+	margin:15px 0 0 0;
+	box-shadow: 5px 5px 5px #444;
+}
+
+#programs a:hover img {
+	box-shadow: 5px 5px 10px #555;
+}
