@@ -1,0 +1,36 @@
+name: Deploy PR Preview to WinSrv
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get PR metadata
+        id: meta
+        run: |
+          echo "user=$(jq -r .pull_request.user.login $GITHUB_EVENT_PATH)" >> $GITHUB_OUTPUT
+
+      - name: Rsync Code to Server
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_UNAME }}
+          password: ${{ secrets.SERVER_SSH_PWORD }}
+          source: "."
+          target: "./Desktop/PRs/${{ steps.meta.outputs.user }}"
+
+      - name: Run Deployment Script
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_UNAME }}
+          password: ${{ secrets.SERVER_SSH_PWORD }}
+          script: |
+            cd ./Desktop/PRs/${{ steps.meta.outputs.user }}
+            npm install
+            .\deploy-pr.ps1 ${{ steps.meta.outputs.user }}
