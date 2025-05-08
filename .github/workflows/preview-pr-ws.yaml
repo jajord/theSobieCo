@@ -32,4 +32,4 @@ jobs:
           password: ${{ secrets.SSH_SERVER_PWORD }}
           script: |
             cd Desktop/PRs/temp
-            ./deploy-pr.ps1 ${{ steps.meta.outputs.user }}
+            ./deploy-pr.ps1 "${{ steps.meta.outputs.user }}"
