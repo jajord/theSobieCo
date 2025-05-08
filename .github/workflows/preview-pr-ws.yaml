@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.SSH_SERVER_UNAME }}
           password: ${{ secrets.SSH_SERVER_PWORD }}
           source: "."
-          target: "~/Desktop/PRs/${{ steps.meta.outputs.user }}"
+          target: "c/inetpub/temp"
 
       - name: Run Deployment Script
         uses: appleboy/ssh-action@master
