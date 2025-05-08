@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.SSH_SERVER_UNAME }}
           password: ${{ secrets.SSH_SERVER_PWORD }}
           source: "."
-          target: "./Desktop/PRs/${{ steps.meta.outputs.user }}"
+          target: "${{ secrets.SSH_SERVER_PATH }}/${{ steps.meta.outputs.user }}"
 
       - name: Run Deployment Script
         uses: appleboy/ssh-action@master
@@ -31,5 +31,6 @@ jobs:
           username: ${{ secrets.SSH_SERVER_UNAME }}
           password: ${{ secrets.SSH_SERVER_PWORD }}
           script: |
+            cd "~/Desktop/PRs/${{ steps.meta.outputs.user }}"
             npm install
-            .\deploy-pr.ps1 ${{ steps.meta.outputs.user }}
+            ./deploy-pr.ps1 ${{ steps.meta.outputs.user }}
