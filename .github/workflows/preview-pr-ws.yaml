@@ -31,5 +31,5 @@ jobs:
           username: ${{ secrets.SSH_SERVER_UNAME }}
           password: ${{ secrets.SSH_SERVER_PWORD }}
           script: |
-            cd "${{ secrets.SSH_SERVER_PATH }}/temp"
+            cd Desktop/PRs/temp
             ./deploy-pr.ps1 ${{ steps.meta.outputs.user }}
