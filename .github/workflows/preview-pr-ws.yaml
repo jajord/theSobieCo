@@ -16,7 +16,7 @@ jobs:
           echo "user=$(jq -r .pull_request.user.login $GITHUB_EVENT_PATH)" >> $GITHUB_OUTPUT
 
       - name: Rsync Code to Server
-        uses: appleboy/scp-action@v0.1.3
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.SSH_SERVER_IP }}
           username: ${{ secrets.SSH_SERVER_UNAME }}
