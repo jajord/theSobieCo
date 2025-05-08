@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.SSH_SERVER_UNAME }}
           password: ${{ secrets.SSH_SERVER_PWORD }}
           script: |
-            Set-Location "C:\${{ secrets.SSH_SERVER_PATH }}\${{ steps.meta.outputs.user }}"
+            cd "C:/${{ secrets.SSH_SERVER_PATH }}/${{ steps.meta.outputs.user }}"
             npm install
             ./deploy-pr.ps1 ${{ steps.meta.outputs.user }}
