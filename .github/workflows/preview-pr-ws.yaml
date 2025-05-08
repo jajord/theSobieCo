@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.SSH_SERVER_UNAME }}
           password: ${{ secrets.SSH_SERVER_PWORD }}
           source: "."
-          target: ${{ secrets.SSH_SERVER_PATH }}
+          target: ${{ secrets.SSH_SERVER_PATH }}/${{ steps.meta.outputs.user }}
 
       - name: Run Deployment Script
         uses: appleboy/ssh-action@master
